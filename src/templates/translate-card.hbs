@@ -1,0 +1,19 @@
+<div class='card-body'>
+  <h2 class='card-title'>{{wordId}}</h2>
+  <div class='card-info'>
+    <div class='card-describe'>
+      <p class='name-translate'><b>Translate :</b> {{translation.text}}</p>
+      <p class='card-text'><b>Transcription :</b>{{transcription}}</p>
+      <p class='card-text'><b>Definition :</b>{{definition.text}}</p>
+      <p class='name-example'><b>Example :</b></p>
+      {{#each examples}}
+        <ul class='card-list'>
+          <li class='card-item'>{{text}}</li>
+        </ul>
+      {{/each}}
+    </div>
+    <div class='card-image'>
+      <img src='{{images}}' alt='flag' width='330' />
+    </div>
+  </div>
+</div>

@@ -20,44 +20,14 @@
 
   <body>
     <p><a href="index.html">На главную</a></p>
-    <form>
-      <section class="container one">
-        <p>
-          <label for="user_name">Word :</label>
-          <input id="name-input" type="text" name="user_name" />
-        </p>
 
-        <p>
-          <label for="user_surname">Translate :</label>
-          <span class="name-translate"></span>
-        </p>
+    <div class="container">
+      <form>
+        <input type="text" placeholder="Word..." id="name-input" />
+      </form>
+      <div class="search_result" id="search_box-result"></div>
+    </div>
 
-        <p>
-          <label for="city">Example :</label>
-          <span class="name-example"></span>
-        </p>
-
-        <p><label for="email">Эл. почта</label><span></span></p>
-
-        <p>
-          <label for="password">Пароль</label>
-          <span></span>
-        </p>
-
-        <p>
-          <label for="password">Повторите</label>
-          <span></span>
-        </p>
-
-        <p class="captcha">
-          <label for="captcha">Введите число с картинки</label><span></span><br />
-        </p>
-      </section>
-
-      <section class="container two">
-        <button type="submit">Зарегистрироваться</button>
-      </section>
-    </form>
     <script src="./js/task-01.js"></script>
   </body>
 </html>
