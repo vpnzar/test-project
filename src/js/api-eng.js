@@ -1,5 +1,5 @@
 import wordCardTpl from '../templates/translate-card.hbs';
-import debounce from '../../node_modules/lodash.debounce/index';
+import debounce from 'lodash.debounce';
 import getRefs from './refs';
 
 const refs = getRefs();

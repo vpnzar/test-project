@@ -1,8 +1,8 @@
-import axios from '../../node_modules/axios/dist/axios';
+import axios from 'axios/dist/axios';
 import refs from './refs';
 import { createSearchForm, createBodyMarkupForm, createLoadBtn } from './templateHandler';
-import { alert, defaultModules, defaults } from '../../node_modules/@pnotify/core/dist/PNotify';
-import * as basicLightbox from '../../node_modules/basiclightbox/dist/basicLightbox.min';
+import { alert, defaultModules, defaults } from '@pnotify/core/dist/PNotify';
+import * as basicLightbox from 'basiclightbox';
 const API_URL = 'https://pixabay.com/api';
 const API_KEY = '23038221-87f79236823d8e345a162521c';
 let pageNumber = 1;
