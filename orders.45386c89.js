@@ -3,4 +3,4 @@ module.exports=[{"@odata.etag":'W/"EQAAABYAAACY8Z5woARDQagqqiW6ZMMuAASVlYv6"',id
 },{}],"Cm57":[function(require,module,exports) {
 "use strict";var e=a(require("../db.json"));function a(e){return e&&e.__esModule?e:{default:e}}e.default.displayName,console.log(e.default[0].displayName);const o="Km0Hecx17NF6R7dP",n="vpnazarenko@gmail.com",t="vpnazarenko@gmail.com_Km0Hecx17NF6R7dP",c=async e=>{(await fetch("https://know-how.od2.odx.vtiger.com/vpnazarenko@gmail.com_Km0Hecx17NF6R7dP/v1/vtiger/default")).json()};c();
 },{"../db.json":"IM54"}]},{},["Cm57"], null)
-//# sourceMappingURL=/test-project/orders.a7985b66.js.map
+//# sourceMappingURL=/test-project/orders.45386c89.js.map
