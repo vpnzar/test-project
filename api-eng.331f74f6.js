@@ -12,4 +12,4 @@ var t=arguments[3],e="Expected a function",n=NaN,r="[object Symbol]",i=/^\s+|\s+
 },{}],"xAOg":[function(require,module,exports) {
 "use strict";var e=a(require("../templates/translate-card.hbs")),t=a(require("lodash.debounce")),n=a(require("./refs"));function a(e){return e&&e.__esModule?e:{default:e}}const r=(0,n.default)();function i(e){e.preventDefault();const t=e.target.value;s(t)}r.linkInputText.addEventListener("input",(0,t.default)(i,500));const s=async e=>{return(await fetch(`https://dictionary.skyeng.ru/api/public/v1/words/search?search=${e}`)).json().then(e=>{u(e[0].meanings[0].id)})},u=async t=>{await fetch(`https://dictionary.skyeng.ru/api/public/v1/meanings?ids=${t}`).then(e=>e.json()).then(t=>c(t,e.default))};function c(e,t){e.forEach(e=>r.linkCardMarkup.insertAdjacentHTML("afterbegin",t(e)))}
 },{"../templates/translate-card.hbs":"TpRZ","lodash.debounce":"PZFh","./refs":"VyiV"}]},{},["xAOg"], null)
-//# sourceMappingURL=/test-project/api-eng.848268d1.js.map
+//# sourceMappingURL=/test-project/api-eng.331f74f6.js.map
