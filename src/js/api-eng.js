@@ -1,7 +1,6 @@
 import wordCardTpl from '../templates/translate-card.hbs';
 import debounce from 'lodash.debounce';
 import getRefs from './refs';
-
 const refs = getRefs();
 
 refs.linkInputText.addEventListener('input', debounce(onInputChange, 500));

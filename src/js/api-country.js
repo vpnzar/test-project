@@ -1,90 +1,44 @@
-import axios from 'axios/dist/axios';
-import refs from './refs';
-import { createSearchForm, createBodyMarkupForm, createLoadBtn } from './templateHandler';
-import { alert, defaultModules, defaults } from '@pnotify/core/dist/PNotify';
-import * as basicLightbox from 'basiclightbox';
-const API_URL = 'https://pixabay.com/api';
-const API_KEY = '23038221-87f79236823d8e345a162521c';
-let pageNumber = 1;
-let searchQuery = '';
-
+import '../styles/api-country.css';
+import countryNameCardTpl from '../templates/country-name.hbs';
+import countryCardTpl from '../templates/country-card.hbs';
+import API from 'api-service';
+import getRefs from 'refs';
+import debounce from '../../node_modules/lodash.debounce/index';
+import { alert, defaults } from '../../node_modules/@pnotify/core/dist/PNotify';
 defaults.delay = 1000;
+const refs = getRefs();
 
-document.addEventListener('DOMContentLoaded', bodyMarkup);
+refs.linkInputText.addEventListener('input', debounce(onInputChange, 500));
 
-function bodyMarkup() {
-  createSearchForm();
-  const inputFormLink = document.querySelector('#search-form');
-  createLoadBtn();
-  eventLoadMoreBtn();
-  inputFormLink.addEventListener('submit', inputHandler);
-}
-
-function searchPhotoCollection(query, pageNumber) {
-  axios
-    .get(
-      `${API_URL}/?image_type=photo&orientation=horizontal&q=${query}&page=${pageNumber}&per_page=12&key=${API_KEY}`,
-    )
-    .then(data => {
-      createBodyMarkupForm(data.data.hits);
-
-      if (data.data.hits.length === 0) {
-        alert('Please input right request');
-      }
-    })
-    .catch(error => {
-      alert('API request error. See console log');
-    });
-}
-
-function inputHandler(e) {
+function onInputChange(e) {
   e.preventDefault();
-  searchQuery = e.target[0].value;
-  const imageMarkupCreate = document.querySelector('.container-result');
-  imageMarkupCreate.innerHTML = '';
-  searchPhotoCollection(searchQuery);
+  refs.linkCardMarkup.innerHTML = '';
+  const input = refs.linkInputText.value;
+  if (input !== '') {
+    API.fetchCountryName(input)
+      .then(result => handleResult(result))
+      .catch(error => {
+        alert('API request error. See console log');
+        if (error) console.error(error);
+      });
+  }
+}
 
-  setTimeout(function () {
-    const gallery = document.querySelector('.gallery');
-    const galleryItems = document.querySelector('.item-card');
-    if (gallery.contains(galleryItems)) {
-      const loadMoreMarkupBtn = document.querySelector('#button');
-      loadMoreMarkupBtn.classList.remove('is-hidden');
-      openModalEvent();
+function handleResult(result) {
+  if (result.length === 1) {
+    renderCollection(result, countryCardTpl);
+    refs.linkCardMarkup.classList.add('card');
+  } else if (result.length < 10) {
+    renderCollection(result, countryNameCardTpl);
+  } else if (result.length > 10) {
+    alert('Try to input more specific name!');
+  } else {
+    if (result.status !== 200) {
+      alert(result.message);
     }
-  }, 1000);
+  }
 }
 
-function openModalEvent() {
-  const imageMarkupCreate = document.querySelector('.container-result');
-  imageMarkupCreate.addEventListener('click', openModalWindow);
-}
-
-function eventLoadMoreBtn() {
-  const loadMoreBtn = document.querySelector('.load');
-  loadMoreBtn.addEventListener('click', loadMoreImg);
-}
-
-function loadMoreImg(e) {
-  e.preventDefault();
-  searchPhotoCollection(searchQuery, ++pageNumber);
-
-  setTimeout(function () {
-    const imageMarkupCreate = document.querySelector('.container-result');
-    const lastGallery = imageMarkupCreate.lastChild;
-    lastGallery.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
-  }, 1000);
-}
-
-function openModalWindow(e) {
-  const instance = basicLightbox
-    .create(
-      `
-    <img src="${e.target.dataset.source}">
-`,
-    )
-    .show();
+function renderCollection(arr, renderCard) {
+  arr.forEach(el => refs.linkCardMarkup.insertAdjacentHTML('afterbegin', renderCard(el)));
 }

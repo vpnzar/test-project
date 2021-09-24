@@ -14,14 +14,17 @@
         line-height: 1.5;
       }
     </style>
-    <link rel="stylesheet" href="./api-country.html" />
-    <link rel="stylesheet" href="../node_modules/basiclightbox/src/styles/main.scss" />
+    <link rel="stylesheet" href="../styles/api-country.css" />
   </head>
   <body>
     <p><a href="../index.html">На главную</a></p>
+    <div class="container">
+      <form>
+        <input type="text" placeholder="Country Name..." id="name-input" />
+      </form>
+      <div class="search_result" id="search_box-result"></div>
+    </div>
 
-    <ul id="ingredients"></ul>
-
-    <script src="./api-country.html"></script>
+    <script src="../js/api-country.js"></script>
   </body>
 </html>

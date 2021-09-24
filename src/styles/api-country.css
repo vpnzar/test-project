@@ -1,145 +1,109 @@
-:root {
-  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  --animation-duration: 250ms;
-}
-
-html {
+* {
   box-sizing: border-box;
 }
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
 body {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  /* justify-content: center;
-  align-items: flex-start; */
-  min-height: 100vh;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
-    'Helvetica Neue', sans-serif;
-  background-color: rgba(238, 231, 231, 0.986);
-  color: #212121;
+  background: #7ba7ab;
+  font-family: 'Open Sans';
 }
-
-.container-result {
-  width: 100%;
+div {
+  padding: 30px 0;
 }
-
-.gallery {
-  display: grid;
-  width: 100%;
-  height: 100%;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-auto-rows: auto;
-  grid-gap: 20px;
-  padding: 0;
-  list-style: none;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.photo-card {
-  height: 100%;
-  width: 100%;
-  cursor: pointer;
-  object-fit: cover;
-  transition: transform var(--animation-duration) var(--timing-function);
-}
-
-.photo-card:hover {
-  transform: scale(1.03);
-}
-
-.stats {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-around;
-  background-color: #d3cdcd;
-}
-.stats-item {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  margin: 0;
-  font-size: 12px;
-  font-weight: 500;
-  font-style: normal;
-  line-height: 1;
-}
-
-.material-icons {
-  margin: 2px;
-}
-
-input {
-  width: 500px;
-  padding-left: 26px;
-  padding: 10px;
-  border: 0;
-  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
-}
-
-input.input:focus {
-  outline: none !important;
-  border-color: #719ece;
-  border: 1px solid red;
-  box-shadow: 1px 1px 2px 0 #a9a9c0;
-}
-
-form.search-form {
+form {
   position: relative;
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  margin-bottom: 35px;
-  border-radius: 2px;
+  width: 300px;
+  margin: 0 auto;
+}
+.container {
+  background: #7ba7ab;
 }
 
-form.search-form:before {
-  content: '';
-  display: block;
-  width: 14px;
-  height: 14px;
-  /* background-image: url(http://getbootstrap.com/2.3.2/assets/img/glyphicons-halflings.png); */
-  background-position: -48px 0;
+.container form {
+  width: auto;
+  float: left;
+  margin-left: 100px;
+}
+.container input {
+  width: 250px;
+  height: 42px;
+  padding-left: 15px;
+  border-radius: 2px;
+  border: 2px solid rgb(58, 108, 114);
+  background: #f9f0da;
+  outline: none;
+  position: relative;
+  transition: 0.3s linear;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+}
+.container input:focus {
+  width: 600px;
+}
+
+.search_result {
   position: absolute;
-  top: 11px;
-  right: 11px;
-  opacity: 0.5;
-  z-index: 1000;
-}
-
-.load {
-  margin: 30px auto 10px;
-  display: table;
-  border: none;
-  padding: 10px 20px;
-  font-size: 14px;
-  cursor: pointer;
-  color: rgb(82, 77, 77);
+  width: 600px;
+  top: 20%;
+  left: 100px;
   border-radius: 2px;
-  background-color: #fff;
-  box-shadow: 0 0 15px 4px rgb(0 0 0 / 6%);
-}
-
-.load:hover {
-  transform: scale(1.03);
-  border-radius: 4px;
-}
-
-.is-hidden {
-  display: none;
-}
-
-.material-icons {
+  border: 1.5px solid rgb(58, 108, 114);
+  background: #f9f0da;
+  padding: 0px;
+  z-index: 9999;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   font-size: 14px;
+  font-weight: 700;
+}
+
+.card-info {
+  display: inline-flex;
+  width: 100%;
+  grid-template-columns: 220px 220px;
+  align-items: stretch;
+  padding: 15px;
+}
+
+.card-title {
+  text-align: center;
+  margin-bottom: 4px;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+}
+
+.card-image {
+  width: 100%;
+}
+
+.card-describe {
+  height: 220px;
+}
+.card-describe .card-text {
+  width: 200px;
+  margin-bottom: 4px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 10;
+  line-height: 2;
+  letter-spacing: 0.06em;
+}
+.card-list {
+  text-align: left;
+  padding-left: 25px;
+}
+
+.card-item {
+  font-weight: 10;
+  font-size: 13px;
+}
+
+.brighttheme-text {
+  display: block;
+  background-color: hsl(0, 89%, 63%);
+  text-align: center;
+  padding: 20px;
+  width: 300px;
+  color: hsl(120, 91%, 57%);
+  font-size: 12px;
+  font-weight: 10;
 }
