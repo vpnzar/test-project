@@ -1,0 +1,69 @@
+<h1>DELIVERY FORM</h1>
+
+<div class='container'>
+  <div class='order-form'>
+    <h2 class='title'>ОТГРУЗКА ЗАКАЗА:</h2>
+    <form>
+      <div id='data'>
+        <span>Дата отгрузки:</span>
+        <input type='date' min='2000-01-01' max='2022-01-01' />
+      </div>
+      <div id='Number'>
+        <span>Номер заказа:</span>
+        <input type='number' />
+      </div>
+      <div id='payform'>
+        <label for='payform'>Форма оплаты:</label>
+        <select id='payselect'>
+          <option>БН</option>
+          <option>ФОП</option>
+          <option>Наличная</option>
+          <option>КартаПБ</option>
+          <option>Взаимозачет</option></select><br />
+      </div>
+      <div id='paydata'>
+        <label for='paydata'>Оплата:</label>
+        <select id='paydataselect'>
+          <option>Оплачен</option>
+          <option>Отсрочка</option>
+          <option>В течении 3х дней</option>
+          <option>При получении товара</option>
+          <option>Предоплата</option></select><br />
+      </div>
+      <div id='delivery'>
+        <label for='delivery'>Отгрузка:</label>
+        <select id='deliveryselect'>
+          <option>Доставка</option>
+          <option>Самовывоз</option>
+          <option>Отправка НП</option>
+          <option>Перемещение в офис</option>
+          <option>Отправка ТАКСИ</option></select><br />
+      </div>
+      <div id='contact'><span>Контакт:</span> <input type='text' /></div>
+      <div id='tel'><span>Телефон:</span> <input type='tel' /></div>
+      <div id='address'>
+        <span>Адрес доставки:</span>
+        <textarea rows='5'></textarea>
+      </div>
+      <div id='address'>
+        <span>Адрес НП:</span>
+        <textarea rows='5'></textarea>
+      </div>
+      <div id='notes'>
+        <span>Доп.инфо:</span>
+        <textarea rows='5'></textarea>
+      </div>
+      <input type='button' id='submit' value='submit' />
+      <input type='button' id='reset' value='reset' />
+    </form></div>
+  <div class='data-form'>
+    <h2 class='title'>ORDER SUBMIT</h2>
+    <ul class='data-list'>
+      <li class='data-list-item'></li>
+      <li class='data-list-item'></li>
+      <li class='data-list-item'></li>
+      <li class='data-list-item'></li>
+      <li class='data-list-item'></li>
+    </ul>
+  </div>
+</div>
